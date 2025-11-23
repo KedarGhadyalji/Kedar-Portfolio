@@ -1,12 +1,13 @@
+import { Navbar, Welcome, Dock } from "#components";
 import React from "react";
 
 const App = () => {
   return (
-    <div>
-      <h1>
-        Welcome to Kedar's Macfolio
-      </h1>
-    </div>
+    <main>
+      <Navbar />
+      <Welcome />
+      <Dock />
+    </main>
   );
 };
 
