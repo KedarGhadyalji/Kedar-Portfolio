@@ -110,19 +110,23 @@ const techStack = [
   },
   {
     category: "Styling",
-    items: ["Tailwind CSS", "Sass", "CSS"],
+    items: ["Tailwind CSS", "CSS"],
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Hono"],
+    items: ["Node.js", "Express", "NestJS", "Java", "Python", "C#"],
+  },
+  {
+    category: "Languages",
+    items: ["C", "C++", "Java", "Python"],
   },
   {
     category: "Database",
-    items: ["MongoDB", "PostgreSQL"],
+    items: ["MongoDB", "PostgreSQL", "MySQL"],
   },
   {
     category: "Dev Tools",
-    items: ["Git", "GitHub", "Docker"],
+    items: ["Git", "GitHub"],
   },
 ];
 
@@ -146,7 +150,7 @@ const socials = [
     text: "Twitter/X",
     icon: "/icons/twitter.svg",
     bg: "#ff866b",
-    link: "",
+    link: "https://x.com/kedarghadyalji?t=FmvbXvlo0zHJhsuLMV-0sA&s=09",
   },
   {
     id: 4,
@@ -188,19 +192,19 @@ const photosLinks = [
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png",
+    img: "/images/gal1.png", // Insert Own Images
   },
   {
     id: 2,
-    img: "/images/gal2.png",
+    img: "/images/gal2.png", // Insert Own Images
   },
   {
     id: 3,
-    img: "/images/gal3.png",
+    img: "/images/gal3.png", // Insert Own Images
   },
   {
     id: 4,
-    img: "/images/gal4.png",
+    img: "/images/gal4.png", // Insert Own Images
   },
 ];
 
@@ -225,7 +229,7 @@ const WORK_LOCATION = {
     // ▶ Project 1
     {
       id: 5,
-      name: "Nike Ecommerce Website Application",
+      name: "CraftedCV",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-5", // icon position inside Finder
@@ -233,16 +237,16 @@ const WORK_LOCATION = {
       children: [
         {
           id: 1,
-          name: "Nike Project.txt",
+          name: "CraftedCV.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            // "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
+            // "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
+            // "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
+            // "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
           ],
         },
         {
@@ -331,7 +335,7 @@ const WORK_LOCATION = {
     // ▶ Project 3
     {
       id: 7,
-      name: "Food Delivery App",
+      name: "Genie - Pocket AI Agent",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
