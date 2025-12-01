@@ -9,6 +9,7 @@ const PhotosContent = () => {
 
   return (
     <>
+      {/* WINDOW HEADER */}
       <div id="window-header">
         <WindowControls target="photos" />
 
@@ -39,6 +40,7 @@ const PhotosContent = () => {
             {gallery.map(({ id, img }) => (
               <li
                 key={id}
+                className="cursor-pointer"
                 onClick={() =>
                   openWindow("imgfile", {
                     id,

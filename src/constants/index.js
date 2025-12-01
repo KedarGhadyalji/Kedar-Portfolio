@@ -44,7 +44,7 @@ const dockApps = [
   },
   {
     id: "safari",
-    name: "Articles", // was "Safari"
+    name: "Experience", // was "Safari"
     icon: "safari.png",
     canOpen: true,
   },
@@ -74,28 +74,27 @@ const dockApps = [
   },
 ];
 
-const blogPosts = [
+const experiencePosts = [
   {
     id: 1,
-    date: "Sep 2, 2025",
-    title:
-      "TypeScript Explained: What It Is, Why It Matters, and How to Master It",
-    image: "/images/blog1.png",
-    link: "https://jsmastery.com/blog/typescript-explained-what-it-is-why-it-matters-and-how-to-master-it",
+    date: "Month Year - Month Year",
+    title: "XYZ Intern / Employee - ABC Company",
+    image: "/images/gal1.png",
+    details: "Lorem Ipsem",
   },
   {
     id: 2,
-    date: "Aug 28, 2025",
-    title: "The Ultimate Guide to Mastering Three.js for 3D Development",
-    image: "/images/blog2.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-three-js-for-3d-development",
+    date: "Month Year - Month Year",
+    title: "XYZ Intern / Employee - ABC Company",
+    image: "/images/gal1.png",
+    details: "Lorem Ipsem",
   },
   {
     id: 3,
-    date: "Aug 15, 2025",
-    title: "The Ultimate Guide to Mastering GSAP Animations",
-    image: "/images/blog3.png",
-    link: "https://jsmastery.com/blog/the-ultimate-guide-to-mastering-gsap-animations",
+    date: "Month Year - Month Year",
+    title: "XYZ Intern / Employee - ABC Company",
+    image: "/images/gal1.png",
+    details: "Lorem Ipsem",
   },
 ];
 
@@ -192,19 +191,19 @@ const photosLinks = [
 const gallery = [
   {
     id: 1,
-    img: "/images/gal1.png", // Insert Own Images
+    img: "/images/gal1.png",
   },
   {
     id: 2,
-    img: "/images/gal2.png", // Insert Own Images
+    img: "/images/gal2.png",
   },
   {
     id: 3,
-    img: "/images/gal3.png", // Insert Own Images
+    img: "/images/gal3.png",
   },
   {
     id: 4,
-    img: "/images/gal4.png", // Insert Own Images
+    img: "/images/gal4.png",
   },
 ];
 
@@ -212,7 +211,7 @@ export {
   navLinks,
   navIcons,
   dockApps,
-  blogPosts,
+  experiencePosts,
   techStack,
   socials,
   photosLinks,
@@ -226,162 +225,162 @@ const WORK_LOCATION = {
   icon: "/icons/work.svg",
   kind: "folder",
   children: [
-    // ▶ Project 1
+    // ▶ Project 1 — TimeFlex
     {
-      id: 5,
-      name: "CraftedCV",
+      id: 10,
+      name: "TimeFlex - Personal Timetable Generator",
       icon: "/images/folder.png",
       kind: "folder",
-      position: "top-10 left-5", // icon position inside Finder
-      windowPosition: "top-[5vh] left-5", // optional: Finder window position
+      position: "top-10 left-5",
+      windowPosition: "top-[5vh] left-5",
       children: [
         {
-          id: 1,
-          name: "CraftedCV.txt",
+          id: 101,
+          name: "TimeFlex.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            // "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            // "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            // "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
-            // "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
+            "TimeFlex is a web-based personal timetable generator designed to help students and individuals efficiently create and manage schedules.",
+            "Built using HTML, CSS, JavaScript, and Java, the platform focuses on clean UI and user-friendly interactions.",
+            "Users can customize their time slots, add tasks, and generate a structured timetable effortlessly.",
+            "The project emphasizes simplicity, usability, and practical utility in everyday academic planning.",
           ],
         },
         {
-          id: 2,
-          name: "nike.com",
+          id: 102,
+          name: "TimeFlex.com",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/fZdTYswuZjU?si=Awjl-pIst9e09_UU",
+          href: "", // ← add link here if available
           position: "top-10 right-20",
         },
         {
-          id: 4,
-          name: "nike.png",
+          id: 103,
+          name: "TimeFlex.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
           position: "top-52 right-80",
-          imageUrl: "/images/project-1.png",
+          imageUrl: "/images/timeflex-preview.png", // ← replace with your real image
         },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
-        },
+        // {
+        //   id: 104,
+        //   name: "Design.fig",
+        //   icon: "/images/plain.png",
+        //   kind: "file",
+        //   fileType: "fig",
+        //   href: "",
+        //   position: "top-60 right-20",
+        // },
       ],
     },
 
-    // ▶ Project 2
+    // ▶ Project 2 — SMART Chat App
     {
-      id: 6,
-      name: "AI Resume Analyzer",
+      id: 20,
+      name: "SMART – Real-time Chat Application",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-52 right-80",
       windowPosition: "top-[20vh] left-7",
       children: [
         {
-          id: 1,
-          name: "AI Resume Analyzer Project.txt",
+          id: 201,
+          name: "SMART Chat.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 right-10",
           description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
+            "SMART is a secure real-time chat application built using the MERN stack — MongoDB, Express.js, React.js, Node.js — along with Socket.IO.",
+            "The project focuses on real-time bi-directional communication between users.",
+            "Features include instant message delivery, live updates, and persistent chat data storage.",
+            "The app demonstrates backend communication handling, scalability, and efficient WebSocket integration.",
           ],
         },
         {
-          id: 2,
-          name: "ai-resume-analyzer.com",
+          id: 202,
+          name: "SMART-chat.com",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/iYOz165wGkQ?si=R1hs8Legl200m0Cl",
+          href: "", // ← add link if available
           position: "top-20 left-20",
         },
         {
-          id: 4,
-          name: "ai-resume-analyzer.png",
+          id: 203,
+          name: "SMART.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
           position: "top-52 left-80",
-          imageUrl: "/images/project-2.png",
+          imageUrl: "/images/smart-preview.png", // ← replace with your real image
         },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 left-5",
-        },
+        // {
+        //   id: 204,
+        //   name: "Design.fig",
+        //   icon: "/images/plain.png",
+        //   kind: "file",
+        //   fileType: "fig",
+        //   href: "",
+        //   position: "top-60 left-5",
+        // },
       ],
     },
 
-    // ▶ Project 3
+    // ▶ Project 3 — Genie AI Pocket Agent
     {
-      id: 7,
-      name: "Genie - Pocket AI Agent",
+      id: 30,
+      name: "Genie – AI Pocket Agent",
       icon: "/images/folder.png",
       kind: "folder",
       position: "top-10 left-80",
       windowPosition: "top-[33vh] left-7",
       children: [
         {
-          id: 1,
-          name: "Food Delivery App Project.txt",
+          id: 301,
+          name: "Genie.txt",
           icon: "/images/txt.png",
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
           description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
+            "Genie is a mobile application featuring multiple AI agents that assist users in real time.",
+            "Built using React Native and Expo, the app integrates Firebase for live data syncing.",
+            "Users can interact with various predefined agents or create their own custom agents.",
+            "Authentication and user management are handled using Clerk, ensuring secure access and smooth onboarding.",
           ],
         },
         {
-          id: 2,
-          name: "food-delivery-app.com",
+          id: 302,
+          name: "Genie-app.com",
           icon: "/images/safari.png",
           kind: "file",
           fileType: "url",
-          href: "https://youtu.be/LKrX390fJMw?si=cExkuVhf2DTV9G2-",
+          href: "https://github.com/KedarGhadyalji/genie-ai-pocket-agent",
           position: "top-10 right-20",
         },
         {
-          id: 4,
-          name: "food-delivery-app.png",
+          id: 303,
+          name: "Genie.png",
           icon: "/images/image.png",
           kind: "file",
           fileType: "img",
           position: "top-52 right-80",
-          imageUrl: "/images/project-3.png",
+          imageUrl: "/images/genie-preview.png", // ← replace with your real screenshot
         },
-        {
-          id: 5,
-          name: "Design.fig",
-          icon: "/images/plain.png",
-          kind: "file",
-          fileType: "fig",
-          href: "https://google.com",
-          position: "top-60 right-20",
-        },
+        // {
+        //   id: 304,
+        //   name: "Design.fig",
+        //   icon: "/images/plain.png",
+        //   kind: "file",
+        //   fileType: "fig",
+        //   href: "",
+        //   position: "top-60 right-20",
+        // },
       ],
     },
   ],
@@ -453,7 +452,7 @@ const RESUME_LOCATION = {
       icon: "/images/pdf.png",
       kind: "file",
       fileType: "pdf",
-      // you can add `href` if you want to open a hosted resume
+      // Add `href` to open a hosted resume
       // href: "/your/resume/path.pdf",
     },
   ],

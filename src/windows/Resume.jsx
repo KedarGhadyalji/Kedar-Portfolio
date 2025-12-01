@@ -27,7 +27,7 @@ const Resume = () => {
           <Download className="icon" />
         </a>
       </div>
-      <Document file="public/files/Kedar_Ghadyalji_Resume.pdf">
+      <Document file="files/Kedar_Ghadyalji_Resume.pdf">
         <Page pageNumber={1} renderTextLayer renderAnnotationLayer />
       </Document>
     </>

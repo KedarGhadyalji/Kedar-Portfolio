@@ -1,11 +1,10 @@
 import { WindowControls } from "#components";
-import { blogPosts } from "#constants";
+import { experiencePosts } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
 import {
   ChevronLeft,
   ChevronRight,
   Copy,
-  MoveRight,
   PanelLeft,
   Plus,
   Search,
@@ -46,21 +45,21 @@ const Safari = () => {
           <Copy className="icon" />
         </div>
       </div>
+
       <div className="blog">
-        <h2>My Developer Blog</h2>
+        <h2>My Work Experience</h2>
 
         <div className="space-y-8">
-          {blogPosts.map(({ id, image, title, date, link }) => (
+          {experiencePosts.map(({ id, image, title, date, details }) => (
             <div key={id} className="blog-post">
               <div className="col-span-2">
                 <img src={image} alt={title} />
               </div>
+
               <div className="content">
                 <p>{date}</p>
                 <h3>{title}</h3>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  Check out the full post <MoveRight className="icon-hover" />
-                </a>
+                <p className="text-sm opacity-80 mt-2">{details}</p>
               </div>
             </div>
           ))}
