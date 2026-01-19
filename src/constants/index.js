@@ -77,25 +77,25 @@ const dockApps = [
 const experiencePosts = [
   {
     id: 1,
-    date: "Month Year - Month Year",
-    title: "XYZ Intern / Employee - ABC Company",
-    image: "/images/gal1.png",
+    date: "January 2026 - April 2026",
+    title: "Software Developer Intern - Cyber Secured India",
+    image: "/images/internship_1.png",
     details: "Lorem Ipsem",
   },
-  {
-    id: 2,
-    date: "Month Year - Month Year",
-    title: "XYZ Intern / Employee - ABC Company",
-    image: "/images/gal1.png",
-    details: "Lorem Ipsem",
-  },
-  {
-    id: 3,
-    date: "Month Year - Month Year",
-    title: "XYZ Intern / Employee - ABC Company",
-    image: "/images/gal1.png",
-    details: "Lorem Ipsem",
-  },
+  // {
+  //   id: 2,
+  //   date: "Month Year - Month Year",
+  //   title: "XYZ Intern / Employee - ABC Company",
+  //   image: "/images/internship_1.png",
+  //   details: "Lorem Ipsem",
+  // },
+  // {
+  //   id: 3,
+  //   date: "Month Year - Month Year",
+  //   title: "XYZ Intern / Employee - ABC Company",
+  //   image: "/images/internship_1.png",
+  //   details: "Lorem Ipsem",
+  // },
 ];
 
 const techStack = [
@@ -113,7 +113,7 @@ const techStack = [
   },
   {
     category: "Backend",
-    items: ["Node.js", "Express", "NestJS", "Java", "Python", "C#"],
+    items: ["Node.js", "JavaScript", "Express", "Python", "C#"],
   },
   {
     category: "Languages",
