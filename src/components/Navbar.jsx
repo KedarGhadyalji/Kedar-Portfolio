@@ -4,7 +4,7 @@ import dayjs from "dayjs";
 import useWindowStore from "#store/window";
 
 const Navbar = () => {
-  const { openWindow } = useWindowStore();
+  const { openWindow, toggleDarkMode, isDarkMode } = useWindowStore();
 
   return (
     <nav>
@@ -22,11 +22,25 @@ const Navbar = () => {
       </div>
       <div>
         <ul>
-          {navIcons.map(({ id, img }) => (
-            <li key={id}>
-              <img src={img} className="icon-hover" alt={`icon-${id}`} />
-            </li>
-          ))}
+          {navIcons.map(({ id, img }) => {
+            const isToggle = img.includes("mode");
+
+            return (
+              <li
+                key={id}
+                onClick={isToggle ? toggleDarkMode : undefined}
+                className="cursor-pointer group relative"
+              >
+                <img src={img} className="icon-hover" alt={`icon-${id}`} />
+
+                {isToggle && (
+                  <span className="nav-tooltip">
+                    {isDarkMode ? "Light Mode" : "Dark Mode"}
+                  </span>
+                )}
+              </li>
+            );
+          })}
         </ul>
         <time>{dayjs().format("ddd MMM D h:mm A")}</time>
       </div>

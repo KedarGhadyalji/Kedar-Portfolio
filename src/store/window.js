@@ -6,6 +6,13 @@ const useWindowStore = create(
   immer((set) => ({
     windows: WINDOW_CONFIG,
     nextZIndex: INITIAL_Z_INDEX + 1,
+    isDarkMode: false,
+
+    toggleDarkMode: () => {
+      set((state) => {
+        state.isDarkMode = !state.isDarkMode;
+      });
+    },
 
     openWindow: (windowKey, data = null) => {
       set((state) => {
@@ -31,10 +38,11 @@ const useWindowStore = create(
     focusWindow: (windowKey) => {
       set((state) => {
         const win = state.windows[windowKey];
+        if (!win) return;
         win.zIndex = state.nextZIndex++;
       });
     },
-  }))
+  })),
 );
 
 export default useWindowStore;
