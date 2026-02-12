@@ -8,9 +8,46 @@ const useWindowStore = create(
     nextZIndex: INITIAL_Z_INDEX + 1,
     isDarkMode: false,
 
+    // WIFI & MENU STATE
+    isWifiOn: false,
+    isWifiConnected: false,
+    isNotificationOpen: false,
+    activeMenu: null,
+
     toggleDarkMode: () => {
       set((state) => {
         state.isDarkMode = !state.isDarkMode;
+      });
+    },
+
+    toggleWifi: () => {
+      set((state) => {
+        state.isWifiOn = !state.isWifiOn;
+        if (!state.isWifiOn) state.isWifiConnected = false;
+      });
+    },
+
+    setWifiConnected: (status) => {
+      set((state) => {
+        state.isWifiConnected = status;
+        if (status) {
+          state.isNotificationOpen = true;
+        }
+      });
+
+      // Auto-hide notification after 4 seconds
+      if (status) {
+        setTimeout(() => {
+          set((state) => {
+            state.isNotificationOpen = false;
+          });
+        }, 4000);
+      }
+    },
+
+    toggleMenu: (menuId) => {
+      set((state) => {
+        state.activeMenu = state.activeMenu === menuId ? null : menuId;
       });
     },
 
@@ -22,6 +59,7 @@ const useWindowStore = create(
         win.zIndex = state.nextZIndex;
         win.data = data ?? win.data;
         state.nextZIndex++;
+        state.activeMenu = null; // Close menus when opening a window
       });
     },
 

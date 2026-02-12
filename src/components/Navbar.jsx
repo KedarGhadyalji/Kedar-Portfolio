@@ -4,14 +4,20 @@ import dayjs from "dayjs";
 import useWindowStore from "#store/window";
 
 const Navbar = () => {
-  const { openWindow, toggleDarkMode, isDarkMode } = useWindowStore();
+  const { openWindow, toggleDarkMode, isDarkMode, toggleMenu } =
+    useWindowStore();
+
+  const handleIconClick = (id, img) => {
+    if (img.includes("mode")) toggleDarkMode();
+    if (img.includes("wifi")) toggleMenu("wifi");
+    // Search and User menus will go here later
+  };
 
   return (
     <nav>
       <div>
         <img src="/images/logo.svg" alt="logo" />
         <p className="font-bold">Kedar's Portfolio</p>
-
         <ul>
           {navLinks.map(({ id, name, type }) => (
             <li key={id} onClick={() => openWindow(type)}>
@@ -23,21 +29,26 @@ const Navbar = () => {
       <div>
         <ul>
           {navIcons.map(({ id, img }) => {
-            const isToggle = img.includes("mode");
+            const isMode = img.includes("mode");
+            const isWifi = img.includes("wifi");
 
             return (
               <li
                 key={id}
-                onClick={isToggle ? toggleDarkMode : undefined}
+                onClick={() => handleIconClick(id, img)}
                 className="cursor-pointer group relative"
               >
                 <img src={img} className="icon-hover" alt={`icon-${id}`} />
 
-                {isToggle && (
-                  <span className="nav-tooltip">
-                    {isDarkMode ? "Light Mode" : "Dark Mode"}
-                  </span>
-                )}
+                <span className="nav-tooltip">
+                  {isMode
+                    ? isDarkMode
+                      ? "Light Mode"
+                      : "Dark Mode"
+                    : isWifi
+                      ? "Wi-Fi Settings"
+                      : `Open ${id}`}
+                </span>
               </li>
             );
           })}

@@ -393,3 +393,22 @@ section {
     }
   }
 }
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@layer components {
+  .macos-notification {
+    @apply fixed top-14 right-5 w-80 bg-white/70 dark:bg-black/70 backdrop-blur-xl 
+           p-4 rounded-2xl shadow-2xl border border-white/20 z-[10000] flex items-center gap-4;
+    animation: slideInRight 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1) forwards;
+  }
+}

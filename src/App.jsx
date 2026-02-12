@@ -1,7 +1,7 @@
 import { Draggable } from "gsap/Draggable";
 import gsap from "gsap";
-
-import { Navbar, Welcome, Dock, Home } from "#components";
+import { Navbar, Welcome, Dock, NotificationManager } from "#components";
+import WifiMenu from "./components/WifiMenu";
 import React, { useEffect } from "react";
 import useWindowStore from "#store/window";
 import {
@@ -19,21 +19,25 @@ gsap.registerPlugin(Draggable);
 
 const App = () => {
   const isDarkMode = useWindowStore((state) => state.isDarkMode);
+  const activeMenu = useWindowStore((state) => state.activeMenu);
 
   useEffect(() => {
-    // This updates the body background directly when dark mode changes
-    if (isDarkMode) {
-      document.body.style.backgroundImage = "url('/images/wallpaper2.png')";
-    } else {
-      document.body.style.backgroundImage = "url('/images/wallpaper1.png')";
-    }
+    document.body.style.backgroundImage = isDarkMode
+      ? "url('/images/wallpaper2.png')"
+      : "url('/images/wallpaper1.png')";
   }, [isDarkMode]);
 
   return (
     <main className={isDarkMode ? "dark" : ""}>
       <Navbar />
+
+      {/* System Overlays */}
+      {activeMenu === "wifi" && <WifiMenu />}
+      <NotificationManager />
+
       <Welcome />
       <Dock />
+      {/* Windows Layer */}
       <Terminal />
       <Safari />
       <Resume />
