@@ -4,5 +4,14 @@ import Dock from "#components/Dock.jsx";
 import WindowControls from "#components/WindowControls.jsx";
 import Home from "#components/Home.jsx";
 import NotificationManager from "./NotificationManager";
+import Spotlight from "./Spotlight";
 
-export { Navbar, Welcome, Dock, WindowControls, Home, NotificationManager };
+export {
+  Navbar,
+  Welcome,
+  Dock,
+  WindowControls,
+  Home,
+  NotificationManager,
+  Spotlight,
+};

@@ -4,22 +4,28 @@ import { immer } from "zustand/middleware/immer";
 
 const useWindowStore = create(
   immer((set) => ({
+    // --- STATE ---
     windows: WINDOW_CONFIG,
     nextZIndex: INITIAL_Z_INDEX + 1,
     isDarkMode: false,
 
-    // WIFI & MENU STATE
+    // System States
     isWifiOn: false,
     isWifiConnected: false,
     isNotificationOpen: false,
+    isSearchOpen: false,
     activeMenu: null,
 
+    // --- ACTIONS ---
+
+    // Theme Logic
     toggleDarkMode: () => {
       set((state) => {
         state.isDarkMode = !state.isDarkMode;
       });
     },
 
+    // WiFi & Connectivity Logic
     toggleWifi: () => {
       set((state) => {
         state.isWifiOn = !state.isWifiOn;
@@ -30,12 +36,9 @@ const useWindowStore = create(
     setWifiConnected: (status) => {
       set((state) => {
         state.isWifiConnected = status;
-        if (status) {
-          state.isNotificationOpen = true;
-        }
+        if (status) state.isNotificationOpen = true;
       });
 
-      // Auto-hide notification after 4 seconds
       if (status) {
         setTimeout(() => {
           set((state) => {
@@ -45,12 +48,28 @@ const useWindowStore = create(
       }
     },
 
+    // Menu & Search Logic
     toggleMenu: (menuId) => {
       set((state) => {
         state.activeMenu = state.activeMenu === menuId ? null : menuId;
+        if (state.activeMenu) state.isSearchOpen = false;
       });
     },
 
+    toggleSearch: () => {
+      set((state) => {
+        state.isSearchOpen = !state.isSearchOpen;
+        if (state.isSearchOpen) state.activeMenu = null;
+      });
+    },
+
+    setSearchOpen: (isOpen) => {
+      set((state) => {
+        state.isSearchOpen = isOpen;
+      });
+    },
+
+    // Window Management
     openWindow: (windowKey, data = null) => {
       set((state) => {
         const win = state.windows[windowKey];
@@ -59,7 +78,10 @@ const useWindowStore = create(
         win.zIndex = state.nextZIndex;
         win.data = data ?? win.data;
         state.nextZIndex++;
-        state.activeMenu = null; // Close menus when opening a window
+
+        // Auto-close system overlays
+        state.activeMenu = null;
+        state.isSearchOpen = false;
       });
     },
 

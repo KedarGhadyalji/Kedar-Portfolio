@@ -1,9 +1,16 @@
 import { Draggable } from "gsap/Draggable";
 import gsap from "gsap";
-import { Navbar, Welcome, Dock, NotificationManager } from "#components";
+import {
+  Navbar,
+  Welcome,
+  Dock,
+  NotificationManager,
+  Spotlight,
+} from "#components";
 import WifiMenu from "./components/WifiMenu";
-import React, { useEffect } from "react";
+import React from "react";
 import useWindowStore from "#store/window";
+import { useSystemLogic } from "./hooks/useSystemLogic"; // Import hook
 import {
   Contact,
   Finder,
@@ -20,23 +27,23 @@ gsap.registerPlugin(Draggable);
 const App = () => {
   const isDarkMode = useWindowStore((state) => state.isDarkMode);
   const activeMenu = useWindowStore((state) => state.activeMenu);
+  const isSearchOpen = useWindowStore((state) => state.isSearchOpen);
 
-  useEffect(() => {
-    document.body.style.backgroundImage = isDarkMode
-      ? "url('/images/wallpaper2.png')"
-      : "url('/images/wallpaper1.png')";
-  }, [isDarkMode]);
+  // Run all background system logic (Wallpaper, Shortcuts, etc.)
+  useSystemLogic();
 
   return (
     <main className={isDarkMode ? "dark" : ""}>
       <Navbar />
 
-      {/* System Overlays */}
+      {/* System Layers */}
       {activeMenu === "wifi" && <WifiMenu />}
+      {isSearchOpen && <Spotlight />}
       <NotificationManager />
 
       <Welcome />
       <Dock />
+
       {/* Windows Layer */}
       <Terminal />
       <Safari />
