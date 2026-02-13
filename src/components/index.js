@@ -5,6 +5,7 @@ import WindowControls from "#components/WindowControls.jsx";
 import Home from "#components/Home.jsx";
 import NotificationManager from "./NotificationManager";
 import Spotlight from "./Spotlight";
+import SystemReport from "./SystemReport";
 
 export {
   Navbar,
@@ -14,4 +15,5 @@ export {
   Home,
   NotificationManager,
   Spotlight,
+  SystemReport,
 };

@@ -4,14 +4,20 @@ import dayjs from "dayjs";
 import useWindowStore from "#store/window";
 
 const Navbar = () => {
-  // Added toggleSearch to the list of extracted functions
-  const { openWindow, toggleDarkMode, isDarkMode, toggleMenu, toggleSearch } =
-    useWindowStore();
+  const {
+    openWindow,
+    toggleDarkMode,
+    isDarkMode,
+    toggleMenu,
+    toggleSearch,
+    toggleSystemReport,
+  } = useWindowStore();
 
   const handleIconClick = (id, img) => {
     if (img.includes("mode")) toggleDarkMode();
     if (img.includes("wifi")) toggleMenu("wifi");
     if (img.includes("search")) toggleSearch();
+    if (img.includes("user")) toggleSystemReport();
   };
 
   return (
@@ -32,7 +38,8 @@ const Navbar = () => {
           {navIcons.map(({ id, img }) => {
             const isMode = img.includes("mode");
             const isWifi = img.includes("wifi");
-            const isSearch = img.includes("search"); // Added for cleaner tooltip logic
+            const isSearch = img.includes("search");
+            const isUser = img.includes("user"); // Added check for user icon
 
             return (
               <li
@@ -51,7 +58,9 @@ const Navbar = () => {
                       ? "Wi-Fi Settings"
                       : isSearch
                         ? "Spotlight Search"
-                        : `Open ${id}`}
+                        : isUser
+                          ? "Kedar Specs"
+                          : `Open ${id}`}
                 </span>
               </li>
             );

@@ -14,18 +14,17 @@ const useWindowStore = create(
     isWifiConnected: false,
     isNotificationOpen: false,
     isSearchOpen: false,
+    isSystemReportOpen: false, // Added
     activeMenu: null,
 
     // --- ACTIONS ---
 
-    // Theme Logic
     toggleDarkMode: () => {
       set((state) => {
         state.isDarkMode = !state.isDarkMode;
       });
     },
 
-    // WiFi & Connectivity Logic
     toggleWifi: () => {
       set((state) => {
         state.isWifiOn = !state.isWifiOn;
@@ -48,28 +47,36 @@ const useWindowStore = create(
       }
     },
 
-    // Menu & Search Logic
     toggleMenu: (menuId) => {
       set((state) => {
         state.activeMenu = state.activeMenu === menuId ? null : menuId;
-        if (state.activeMenu) state.isSearchOpen = false;
+        if (state.activeMenu) {
+          state.isSearchOpen = false;
+          state.isSystemReportOpen = false; // Close report if menu opens
+        }
       });
     },
 
     toggleSearch: () => {
       set((state) => {
         state.isSearchOpen = !state.isSearchOpen;
-        if (state.isSearchOpen) state.activeMenu = null;
+        if (state.isSearchOpen) {
+          state.activeMenu = null;
+          state.isSystemReportOpen = false; // Close report if search opens
+        }
       });
     },
 
-    setSearchOpen: (isOpen) => {
+    toggleSystemReport: () => {
       set((state) => {
-        state.isSearchOpen = isOpen;
+        state.isSystemReportOpen = !state.isSystemReportOpen;
+        if (state.isSystemReportOpen) {
+          state.activeMenu = null;
+          state.isSearchOpen = false; // Close search if report opens
+        }
       });
     },
 
-    // Window Management
     openWindow: (windowKey, data = null) => {
       set((state) => {
         const win = state.windows[windowKey];
@@ -79,9 +86,9 @@ const useWindowStore = create(
         win.data = data ?? win.data;
         state.nextZIndex++;
 
-        // Auto-close system overlays
         state.activeMenu = null;
         state.isSearchOpen = false;
+        state.isSystemReportOpen = false; // Close report when opening a window
       });
     },
 
